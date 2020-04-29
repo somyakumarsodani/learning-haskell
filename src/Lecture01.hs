@@ -137,7 +137,8 @@ problem9 (x:xs) = [[x]++(takeWhile (==x)xs)] ++ problem9 (dropWhile (==x)xs)
 -- λ> problem10 "aaaabccaadeeee"
 -- [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')]
 problem10 :: Eq a => [a] -> [(Int, a)]
-problem10 = undefined
+problem10 [] = []
+problem10 (x:xs) = [(length([x]++(takeWhile (==x)xs)), x)] ++ problem10 (dropWhile (==x)xs)
 
 
 -- Problem 11
@@ -161,8 +162,7 @@ data ListItem a
 
 -- Modified run-length encoding.
 problem11 :: Eq a => [a] -> [ListItem a]
-problem11 = undefined
-
+problem11 (x:xs) | (length([x]++(takeWhile (==x)xs)) == 1 = [Single x] ++ problem11 (dropWhile (==x)xs) | otherwise = [Multiple length([x]++(takeWhile (==x)xs) x] ++ problem11 (dropWhile (==x)xs)
 
 -- Problem 12
 -- Decode a run-length encoded list.
@@ -174,7 +174,9 @@ problem11 = undefined
 -- λ> problem12 [Multiple 4 'a',Single 'b',Multiple 2 'c', Multiple 2 'a',Single 'd']
 -- "aaaabccaad"
 problem12 :: Eq a => [ListItem a] -> [a]
-problem12 = undefined
+problem12 [] = []
+problem12 (Single x:xs) = [x] ++ problem12 xs
+problem12 (Multiple decode x:xs) = take decode (repeat x) ++ problem12 xs
 
 
 -- Problem 13
