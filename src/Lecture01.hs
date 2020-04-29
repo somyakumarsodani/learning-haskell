@@ -27,7 +27,7 @@ problem1 val = last val
 -- λ> problem2 ['a'..'z']
 -- 'y'
 problem2 :: [a] -> a
-problem2 = undefined
+problem2 array = last (init array)
 
 
 -- Problem 3
