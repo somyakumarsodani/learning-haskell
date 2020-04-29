@@ -74,7 +74,7 @@ problem5 list = reverse list
 -- λ> problem6 [1,2,4,8,16,8,4,2,1]
 -- True
 problem6 :: Eq a => [a] -> Bool
-problem6 = undefined
+problem6 list = list == reverse list
 
 
 -- Problem 7
