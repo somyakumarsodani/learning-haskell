@@ -108,7 +108,9 @@ problem7 (List (head:remainList)) = problem7 head ++ problem7 (List remainList)
 -- λ> problem8 "aaaabccaadeeee"
 -- "abcade"
 problem8 :: Eq a => [a] -> [a]
-problem8 = undefined
+problem8 [] = []
+problem8 [x] = [x]
+problem8 (first:second:remainList)| first==second = problem8 (second:remainList)| otherwise = first:problem8 (second:remainList)
 
 
 -- Problem 9
