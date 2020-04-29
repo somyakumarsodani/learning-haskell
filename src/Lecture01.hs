@@ -17,7 +17,7 @@ module Lecture01 where
 -- λ> problem1 ['x','y','z']
 -- 'z'
 problem1 :: [a] -> a
-problem1 array = last array
+problem1 list = last list
 
 
 -- Problem 2
@@ -27,7 +27,7 @@ problem1 array = last array
 -- λ> problem2 ['a'..'z']
 -- 'y'
 problem2 :: [a] -> a
-problem2 array = last (init array)
+problem2 list = last (init list)
 
 
 -- Problem 3
@@ -38,7 +38,7 @@ problem2 array = last (init array)
 -- λ> problem3 "haskell" 5
 -- 'e'
 problem3 :: [a] -> Int -> a
-problem3 array index = array !! (index - 1)
+problem3 list index = list !! (index - 1)
 
 
 -- Problem 4
@@ -49,7 +49,7 @@ problem3 array index = array !! (index - 1)
 -- λ> problem4 "Hello, world!"
 -- 13
 problem4 :: [a] -> Int
-problem4 = undefined
+problem4 list = length list
 
 
 -- Problem 5
@@ -60,7 +60,7 @@ problem4 = undefined
 -- λ> problem5 [1,2,3,4]
 -- [4,3,2,1]
 problem5 :: [a] -> [a]
-problem5 = undefined
+problem5 list = reverse list
 
 
 -- Problem 6
