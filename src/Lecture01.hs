@@ -118,9 +118,14 @@ problem8 (first:second:remainList)| first==second = problem8 (second:remainList)
 --      repeated elements they should be placed in separate sublists.
 -- Example:
 -- λ> problem9 ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']
+
+-- https://hackage.haskell.org/package/base-4.12.0.0/docs/Data-List.html
+-- takeWhile, applied to a predicate p and a list xs, returns the longest prefix (possibly empty) of xs of elements that satisfy p:
+-- dropWhile p xs returns the suffix remaining after takeWhile p xs:
 -- ["aaaa","b","cc","aa","d","eeee"]
 problem9 :: Eq a => [a] -> [[a]]
-problem9 = undefined
+problem9 [] = []
+problem9 (x:xs) = [[x]++(takeWhile (==x)xs)] ++ problem9 (dropWhile (==x)xs)
 
 
 -- Problem 10
