@@ -95,7 +95,9 @@ data NestedList a
 -- []
 
 problem7 :: NestedList a -> [a]
-problem7 = undefined
+problem7 (Elem element) = [element]
+problem7 (List[]) = []
+problem7 (List (head:remainList)) = problem7 head ++ problem7 (List remainList)
 
 
 -- Problem 8
